@@ -12,6 +12,7 @@
     "test": "grunt test"
   },
   "dependencies": {
+    "cors": "^2.8.3",
     "dotenv": "^2.0.0",
     "ejs": "^2.4.2",
     "express": "4.13.3"
