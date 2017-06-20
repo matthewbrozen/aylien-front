@@ -68,21 +68,36 @@
                 <h1>Sentiment Results</h1>
                 <p>Results Will Appear Here after successful API call to AYLIEN news API</p>
 
+
+
                 <div ng-repeat="sentiment in sentimentsCtrl.all | orderBy:'+':true">
-                  <h4 class="text-left">Company: {{sentiment.company}}</h4>
-                  <h4 class="text-left">Total Articles Analyzed: {{sentiment.count}}</h4>
-                  <h4 class="text-left">Postive Score: {{sentiment.positive_score}}</h4>
-                  <h4 class="text-left">Neutral Score: {{sentiment.neutral_score}}</h4>
-                  <h4 class="text-left">Negative Score: {{sentiment.negative_score}}</h4>
+                    <div class="well">
+                    <h3 class="text-left">Company: {{sentiment.company}}</h3>
+                    <h4 class="text-left">Total Articles Analyzed: {{sentiment.count}}</h4>
                   <hr>
+                    <h4 class="text-left">Total Postive Articles: {{(sentiment.positive_article_title).length}}</h4>
+                    <h4 class="text-left">Postive Score: {{(sentiment.positive_score).toFixed(2)}} %</h4>
+                    <h4 class="text-left">First Postive Article Title: {{sentiment.positive_article_title[0]}}</h4>
+                    <h4 class="text-left">First Postive Article Source: {{sentiment.positive_article_source[0]}}</h4>
+                  <hr>
+                    <h4 class="text-left">Neutral Articles: {{(sentiment.neutral_article_title).length}}</h4>
+                    <h4 class="text-left">Neutral Score: {{(sentiment.neutral_score).toFixed(2)}} %</h4>
+                    <h4 class="text-left">First Neutral Article Title: {{sentiment.neutral_article_title[0]}}</h4>
+                    <h4 class="text-left">First Neutral Article Source: {{sentiment.neutral_article_source[0]}}</h4>
+                  <hr>
+                    <h4 class="text-left">Negative Articles: {{(sentiment.negative_article_title).length}}</h4>
+                    <h4 class="text-left">Negative Score: {{(sentiment.negative_score).toFixed(2)}} %</h4>
+                    <h4 class="text-left">First Negative Article Title: {{sentiment.negative_article_title[0]}}</h4>
+                    <h4 class="text-left">First Negative Article Source: {{sentiment.negative_article_source[0]}}</h4>
+
                   </div>
+                  <br><br>
+                </div>
               </div>
             </div>
           </div>
-
-        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-            </div>
         </div>
+    </div>
         <!-- /.row -->
 
     </div>
