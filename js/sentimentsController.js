@@ -9,6 +9,7 @@ function SentimentsController($http) {
    self.all=[];
    self.newSentiment={};
    self.addSentiment= addSentiment;
+   self.deleteSentiment = deleteSentiment;
 
    $http.get("https://aylienapi.herokuapp.com/sentiments")
    .then(function(response) {
@@ -39,5 +40,12 @@ function SentimentsController($http) {
       return;
     });
    }
+
+   function deleteSentiment(sentiment) {
+      $http.delete("https://aylienapi.herokuapp.com/sentiments/"+sentiment._id)
+        .then(function() {
+          self.all.splice(self.all.indexOf(sentiment), 1);
+        })
+    }
 
 };

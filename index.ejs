@@ -80,7 +80,11 @@
                                 <h4 class="text-left">Negative Score: {{(sentiment.negative_score).toFixed(2)}} %</h4>
                                 <h4 class="text-left">First Negative Article Title: {{sentiment.negative_article_title[0]}}</h4>
                                 <h4 class="text-left">First Negative Article Source: <a href="{{sentiment.negative_article_source[0]}}">{{sentiment.negative_article_source[0]}}</a></h4>
+
+                                <div class="text-center"> <button ng-click="sentimentsCtrl.deleteSentiment(sentiment)" class="btn btn-danger">Delete Record</button></div>
+
                               </div>
+
 
                             <br><br>
                           </div>
