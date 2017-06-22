@@ -1,1 +1,1 @@
-angular.module('AylienApp', []);
+angular.module('AylienApp', ["chart.js"]);
