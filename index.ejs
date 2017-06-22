@@ -106,9 +106,7 @@
                                   <h2 class="text-left">Company: {{sentiment.company}}</h3>
                                   <h4 class="text-left">Total Articles Analyzed: {{sentiment.count}}</h4>
                                   <br>
-                                  <canvas id="pie" class="chart chart-pie" chart-data="[sentiment.positive_score, sentiment.neutral_score, sentiment.negative_score]" chart-labels="labels"></canvas>
-                                  <br>
-                                  <canvas id="bar" class="chart chart-bar" chart-data="[sentiment.positive_score, sentiment.neutral_score, sentiment.negative_score, 0, 100]" chart-labels="labels" chart-series="series"></canvas>
+                                  <canvas id="bar" class="chart chart-bar" chart-data="[(sentiment.positive_article_title).length, (sentiment.neutral_article_title).length, (sentiment.negative_article_title).length, 0, 100]" chart-labels="labels" chart-series="series"></canvas>
                                   <br>
                                 <hr>
                                 <h3>Positive</h3>
@@ -117,7 +115,10 @@
                                   <h4 class="text-left">First Postive Article Title: {{sentiment.positive_article_title[0]}}</h4>
                                   <h4 class="text-left">First Postive Article Summary: {{sentiment.positive_article_summary[0].join(" ")}}</h4>
                                   <h4 class="text-left">First Postive Article Source: <a href="{{sentiment.positive_article_source[0]}}">{{sentiment.positive_article_source[0]}}</a></h4>
-                                    <button class="btn btn-default"  ng-click="showme=true">See 5 More Articles</button>
+                                  <canvas id="pie" class="chart chart-pie" chart-data="[sentiment.positive_score,(100-sentiment.positive_score) ]" chart-labels="labels2"></canvas>
+                                  <br>
+                                  <hr>
+                                    <button class="btn btn-default"  ng-click="showme=true">See 5 More Articles in Detail</button>
                                     <button class="btn btn-default"  ng-click="showme3=true">See All Articles</button>
                                       <div class="wrapper">
                                         <h2 ng-show="showme">
@@ -149,7 +150,7 @@
 
                                   <div class="wrapper">
                                     <h2 ng-show="showme3">
-                                        <p>Title:  {{sentiment.positive_article_title.join(". &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Title: ")}}<span ng-bind-html-unsafe="expression"></span></p>
+                                        <p>Title:  {{sentiment.positive_article_title.join(". &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Title: ")}}</p>
                                         <button class="btn btn-default" ng-click="showme3=false">Hide List</button>
                                     </h2>
                                   </div>
@@ -161,7 +162,10 @@
                                   <h4 class="text-left">First Neutral Article Title: {{sentiment.neutral_article_title[0]}}</h4>
                                   <h4 class="text-left">First Neutral Article Summary: {{sentiment.neutral_article_summary[0].join(" ")}}</h4>
                                   <h4 class="text-left">First Neutral Article Source: <a href="{{sentiment.neutral_article_source[0]}}">{{sentiment.neutral_article_source[0]}}</a></h4>
-                                    <button class="btn btn-default"  ng-click="showme1=true">See 5 More Articles</button>
+                                  <canvas id="pie" class="chart chart-pie" chart-data="[sentiment.neutral_score,(100-sentiment.neutral_score) ]" chart-labels="labels3"></canvas>
+                                  <br>
+                                  <hr>
+                                    <button class="btn btn-default"  ng-click="showme1=true">See 5 More Articles in Detail</button>
                                     <button class="btn btn-default"  ng-click="showme4=true">See All Articles</button>
                                       <div class="wrapper">
                                         <h2 ng-show="showme1">
@@ -193,7 +197,7 @@
 
                                       <div class="wrapper">
                                         <h2 ng-show="showme4">
-                                            <p>Title:  {{sentiment.neutral_article_title.join(". &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Title: ")}}<span ng-bind-html-unsafe="expression"></span></p>
+                                            <p>Title:  {{sentiment.neutral_article_title.join(". &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Title: ")}}</p>
                                             <button class="btn btn-default" ng-click="showme4=false">Hide List</button>
                                         </h2>
                                       </div>
@@ -205,7 +209,10 @@
                                   <h4 class="text-left">First Negative Article Title: {{sentiment.negative_article_title[0]}}</h4>
                                   <h4 class="text-left">First Negative Article Summary: {{sentiment.negative_article_summary[0].join(" ")}}</h4>
                                   <h4 class="text-left">First Negative Article Source: <a href="{{sentiment.negative_article_source[0]}}">{{sentiment.negative_article_source[0]}}</a></h4>
-                                    <button class="btn btn-default"  ng-click="showme2=true">See 5 More Articles</button>
+                                  <canvas id="pie" class="chart chart-pie" chart-data="[sentiment.negative_score, (100-sentiment.negative_score)]" chart-labels="labels4"></canvas>
+                                  <br>
+                                  <hr>
+                                    <button class="btn btn-default"  ng-click="showme2=true">See 5 More Articles in Detail</button>
                                     <button class="btn btn-default"  ng-click="showme5=true">See All Articles</button>
                                       <div class="wrapper">
                                         <h2 ng-show="showme2">
@@ -238,7 +245,7 @@
 
                                       <div class="wrapper">
                                         <h2 ng-show="showme5">
-                                            <p>Title:  {{sentiment.neutral_article_title.join(". &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Title: ")}}<span ng-bind-html-unsafe="expression"></span></p>
+                                            <p>Title:  {{sentiment.neutral_article_title.join(". &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Title: ")}}</p>
                                             <button class="btn btn-default" ng-click="showme5=false">Hide List</button>
                                         </h2>
                                       </div>

@@ -14,6 +14,12 @@ function SentimentsController($http, $scope) {
    self.addSentiment= addSentiment;
    self.deleteSentiment = deleteSentiment;
    $scope.labels = ["Positive", "Neutral", "Negative"];
+   $scope.labels2 = ["Positive", "Not-Positive"];
+   $scope.labels3 = ["Neutral", "Not-Neutral"];
+   $scope.labels4 = ["Negative", "Not-Negative"];
+   $scope.colors1 = ["Grey", "Yellow"];
+   $scope.colors2 = ["Grey", "Red"];
+
 
 
    $http.get("https://aylienapi.herokuapp.com/sentiments")
