@@ -115,7 +115,9 @@
                                   <h4 class="text-left">First Postive Article Title: {{sentiment.positive_article_title[0]}}</h4>
                                   <h4 class="text-left">First Postive Article Summary: {{sentiment.positive_article_summary[0].join(" ")}}</h4>
                                   <h4 class="text-left">First Postive Article Source: <a href="{{sentiment.positive_article_source[0]}}">{{sentiment.positive_article_source[0]}}</a></h4>
+                                  <div class="text-center"><h3> Overall Positive Score </h3>
                                   <canvas id="pie" class="chart chart-pie" chart-data="[sentiment.positive_score,(100-sentiment.positive_score) ]" chart-labels="labels2"></canvas>
+                                </div>
                                   <br>
                                   <hr>
                                     <button class="btn btn-default"  ng-click="showme=true">See 5 More Articles in Detail</button>
@@ -162,7 +164,9 @@
                                   <h4 class="text-left">First Neutral Article Title: {{sentiment.neutral_article_title[0]}}</h4>
                                   <h4 class="text-left">First Neutral Article Summary: {{sentiment.neutral_article_summary[0].join(" ")}}</h4>
                                   <h4 class="text-left">First Neutral Article Source: <a href="{{sentiment.neutral_article_source[0]}}">{{sentiment.neutral_article_source[0]}}</a></h4>
+                                  <div class="text-center"><h3> Overall Neutral Score </h3>
                                   <canvas id="pie" class="chart chart-pie" chart-data="[sentiment.neutral_score,(100-sentiment.neutral_score) ]" chart-labels="labels3"></canvas>
+                                </div>
                                   <br>
                                   <hr>
                                     <button class="btn btn-default"  ng-click="showme1=true">See 5 More Articles in Detail</button>
@@ -209,7 +213,9 @@
                                   <h4 class="text-left">First Negative Article Title: {{sentiment.negative_article_title[0]}}</h4>
                                   <h4 class="text-left">First Negative Article Summary: {{sentiment.negative_article_summary[0].join(" ")}}</h4>
                                   <h4 class="text-left">First Negative Article Source: <a href="{{sentiment.negative_article_source[0]}}">{{sentiment.negative_article_source[0]}}</a></h4>
+                                  <div class="text-center"><h3> Overall Negative Score </h3>
                                   <canvas id="pie" class="chart chart-pie" chart-data="[sentiment.negative_score, (100-sentiment.negative_score)]" chart-labels="labels4"></canvas>
+                                </div>
                                   <br>
                                   <hr>
                                     <button class="btn btn-default"  ng-click="showme2=true">See 5 More Articles in Detail</button>
