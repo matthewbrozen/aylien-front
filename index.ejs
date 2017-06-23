@@ -100,8 +100,7 @@
                   <br>
                         <div class="jumbotron">
                             <h1>Sentiment Results</h1>
-                            <p>Results Will Appear Here after successful API call to AYLIEN news API</p>
-                              <div ng-repeat="sentiment in sentimentsCtrl.all | orderBy:'+':true">
+                            <p>Results Will Appear Here after successful API call to AYLIEN news API</p><div ng-repeat="sentiment in sentimentsCtrl.all | orderBy:'+':true">
                                 <div class="well">
                                   <h2 class="text-left">Company: {{sentiment.company}}</h3>
                                   <h4 class="text-left">Total Articles Analyzed: {{sentiment.count}}</h4>
@@ -120,42 +119,74 @@
                                 </div>
                                   <br>
                                   <hr>
-                                    <button class="btn btn-default"  ng-click="showme=true">See 5 More Articles in Detail</button>
-                                    <button class="btn btn-default"  ng-click="showme3=true">See All Articles</button>
-                                      <div class="wrapper">
-                                        <h2 ng-show="showme">
-                                          <ul>
-                                            <li>{{sentiment.positive_article_title[2]}}</li>
-                                            <h4 class="text-left">Article Summary: {{sentiment.positive_article_summary[2].join(" ")}}</h4>
-                                            <a href="{{sentiment.positive_article_source[2]}}">{{sentiment.positive_article_source[2]}}</a>
-                                            <br><br><br>
-                                            <li>{{sentiment.positive_article_title[3]}}</li>
-                                            <h4 class="text-left">Article Summary: {{sentiment.positive_article_summary[3].join(" ")}}</h4>
-                                            <a href="{{sentiment.positive_article_source[3]}}">{{sentiment.positive_article_source[3]}}</a>
-                                            <br><br><br>
-                                            <li>{{sentiment.positive_article_title[4]}}</li>
-                                            <h4 class="text-left">Article Summary: {{sentiment.positive_article_summary[4].join(" ")}}</h4>
-                                            <a href="{{sentiment.positive_article_source[4]}}">{{sentiment.positive_article_source[4]}}</a>
-                                            <br><br><br>
-                                            <li>{{sentiment.positive_article_title[5]}}</li>
-                                            <h4 class="text-left">Article Summary: {{sentiment.positive_article_summary[5].join(" ")}}</h4>
-                                            <a href="{{sentiment.positive_article_source[5]}}">{{sentiment.positive_article_source[5]}}</a>
-                                            <br><br><br>
-                                            <li>{{sentiment.positive_article_title[6]}}</li>
-                                            <h4 class="text-left">Article Summary: {{sentiment.positive_article_summary[6].join(" ")}}</h4>
-                                            <a href="{{sentiment.positive_article_source[6]}}">{{sentiment.positive_article_source[6]}}</a>
-                                            <br><br><br>
-                                            <button class="btn btn-default" ng-click="showme=false">Hide Articles</button>
-                                          </ul>
-                                        </h2>
+
+                                      <!-- Trigger the 5 article details modal -->
+                                      <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">See 5 More Articles in Detail</button>
+
+                                      <!-- Modal -->
+                                      <div id="myModal" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+
+                                          <!-- Modal content-->
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                              <h4 class="modal-title">Article Details</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                              <h3>{{sentiment.positive_article_title[2]}}</h3>
+                                              <h4 class="text-left">Article Summary: {{sentiment.positive_article_summary[2].join(" ")}}</h4>
+                                              <a href="{{sentiment.positive_article_source[2]}}">{{sentiment.positive_article_source[2]}}</a>
+                                              <br><br><br>
+                                              <h3>{{sentiment.positive_article_title[3]}}</h3>
+                                              <h4 class="text-left">Article Summary: {{sentiment.positive_article_summary[3].join(" ")}}</h4>
+                                              <a href="{{sentiment.positive_article_source[3]}}">{{sentiment.positive_article_source[3]}}</a>
+                                              <br><br><br>
+                                              <h3>{{sentiment.positive_article_title[4]}}</h3>
+                                              <h4 class="text-left">Article Summary: {{sentiment.positive_article_summary[4].join(" ")}}</h4>
+                                              <a href="{{sentiment.positive_article_source[4]}}">{{sentiment.positive_article_source[4]}}</a>
+                                              <br><br><br>
+                                              <h3>{{sentiment.positive_article_title[5]}}</h3>
+                                              <h4 class="text-left">Article Summary: {{sentiment.positive_article_summary[5].join(" ")}}</h4>
+                                              <a href="{{sentiment.positive_article_source[5]}}">{{sentiment.positive_article_source[5]}}</a>
+                                              <br><br><br>
+                                              <h3>{{sentiment.positive_article_title[6]}}</h3>
+                                              <h4 class="text-left">Article Summary: {{sentiment.positive_article_summary[6].join(" ")}}</h4>
+                                              <a href="{{sentiment.positive_article_source[6]}}">{{sentiment.positive_article_source[6]}}</a>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                          </div>
+
+                                        </div>
                                       </div>
 
-                                  <div class="wrapper">
-                                    <h2 ng-show="showme3">
-                                        <p>Title:  {{sentiment.positive_article_title.join(". &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Title: ")}}</p>
-                                        <button class="btn btn-default" ng-click="showme3=false">Hide List</button>
-                                    </h2>
+                                  <!-- Trigger the all article modal -->
+                                  <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal1">See All Article Titles</button>
+
+                                  <!-- Modal -->
+                                  <div id="myModal1" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-lg">
+
+                                      <!-- Modal content-->
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                          <h4 class="modal-title">All Positive Article Titles</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <!-- <p ng-list="/\n/" ng-model="sentiment.positive_article_title">{{sentiment.positive_article_title}}</p> -->
+                                            <textarea ng-model="sentiment.positive_article_title" ng-list="&#10;" ng-trim="false" rows="25" cols="100"></textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                      </div>
+
+                                    </div>
                                   </div>
+
                                   <br>
                                   <hr>
                                 <h3>Neutral</h3>
@@ -169,42 +200,72 @@
                                 </div>
                                   <br>
                                   <hr>
-                                    <button class="btn btn-default"  ng-click="showme1=true">See 5 More Articles in Detail</button>
-                                    <button class="btn btn-default"  ng-click="showme4=true">See All Articles</button>
-                                      <div class="wrapper">
-                                        <h2 ng-show="showme1">
-                                          <ul>
-                                            <li>{{sentiment.neutral_article_title[2]}}</li>
+                                    <!-- Trigger the 5 article details modal -->
+                                    <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2">See 5 More Articles in Detail</button>
+
+                                    <!-- Modal -->
+                                    <div id="myModal2" class="modal fade" role="dialog">
+                                      <div class="modal-dialog">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Article Details</h4>
+                                          </div>
+                                          <div class="modal-body">
+                                            <h3>{{sentiment.neutral_article_title[2]}}</h3>
                                             <h4 class="text-left">Article Summary: {{sentiment.neutral_article_summary[2].join(" ")}}</h4>
                                             <a href="{{sentiment.neutral_article_source[2]}}">{{sentiment.neutral_article_source[2]}}</a>
                                             <br><br><br>
-                                            <li>{{sentiment.neutral_article_title[3]}}</li>
+                                            <h3>{{sentiment.neutral_article_title[3]}}</h3>
                                             <h4 class="text-left">Article Summary: {{sentiment.neutral_article_summary[3].join(" ")}}</h4>
                                             <a href="{{sentiment.neutral_article_source[3]}}">{{sentiment.neutral_article_source[3]}}</a>
                                             <br><br><br>
-                                            <li>{{sentiment.neutral_article_title[4]}}</li>
+                                            <h3>{{sentiment.neutral_article_title[4]}}</h3>
                                             <h4 class="text-left">Article Summary: {{sentiment.neutral_article_summary[4].join(" ")}}</h4>
                                             <a href="{{sentiment.neutral_article_source[4]}}">{{sentiment.neutral_article_source[4]}}</a>
                                             <br><br><br>
-                                            <li>{{sentiment.neutral_article_title[5]}}</li>
+                                            <h3>{{sentiment.neutral_article_title[5]}}</h3>
                                             <h4 class="text-left">Article Summary: {{sentiment.neutral_article_summary[5].join(" ")}}</h4>
                                             <a href="{{sentiment.neutral_article_source[5]}}">{{sentiment.neutral_article_source[5]}}</a>
                                             <br><br><br>
-                                            <li>{{sentiment.neutral_article_title[6]}}</li>
+                                            <h3>{{sentiment.neutral_article_title[6]}}</h3>
                                             <h4 class="text-left">Article Summary: {{sentiment.neutral_article_summary[6].join(" ")}}</h4>
                                             <a href="{{sentiment.neutral_article_source[6]}}">{{sentiment.neutral_article_source[6]}}</a>
                                             <br><br><br>
-                                            <button class="btn btn-default" ng-click="showme1=false">Hide Articles</button>
-                                          </ul>
-                                        </h2>
-                                      </div>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                          </div>
+                                        </div>
 
-                                      <div class="wrapper">
-                                        <h2 ng-show="showme4">
-                                            <p>Title:  {{sentiment.neutral_article_title.join(". &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Title: ")}}</p>
-                                            <button class="btn btn-default" ng-click="showme4=false">Hide List</button>
-                                        </h2>
                                       </div>
+                                    </div>
+
+                                <!-- Trigger the all article modal -->
+                                <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal3">See All Article Titles</button>
+
+                                <!-- Modal -->
+                                <div id="myModal3" class="modal fade" role="dialog">
+                                  <div class="modal-dialog modal-lg">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">All Positive Article Titles</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                          <textarea ng-model="sentiment.neutral_article_title" ng-list="&#10;" ng-trim="false" rows="25" cols="100"></textarea>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                      </div>
+                                    </div>
+
+                                  </div>
+                                </div>
                                       <br>
                                   <hr>
                                 <h3>Negative</h3>
@@ -218,43 +279,71 @@
                                 </div>
                                   <br>
                                   <hr>
-                                    <button class="btn btn-default"  ng-click="showme2=true">See 5 More Articles in Detail</button>
-                                    <button class="btn btn-default"  ng-click="showme5=true">See All Articles</button>
-                                      <div class="wrapper">
-                                        <h2 ng-show="showme2">
-                                          <ul>
-                                            <li>{{sentiment.negative_article_title[2]}}</li>
-                                            <h4 class="text-left">Article Summary: {{sentiment.negative_article_summary[2].join(" ")}}</h4>
-                                            <a href="{{sentiment.negative_article_source[2]}}">{{sentiment.negative_article_source[2]}}</a>
-                                            <br><br><br>
-                                            <li>{{sentiment.negative_article_title[3]}}</li>
-                                            <h4 class="text-left">Article Summary: {{sentiment.negative_article_summary[3].join(" ")}}</h4>
-                                            <a href="{{sentiment.negative_article_source[3]}}">{{sentiment.negative_article_source[3]}}</a>
-                                            <br><br><br>
-                                            <li>{{sentiment.negative_article_title[4]}}</li>
-                                            <h4 class="text-left">Article Summary: {{sentiment.negative_article_summary[4].join(" ")}}</h4>
-                                            <a href="{{sentiment.negative_article_source[4]}}">{{sentiment.negative_article_source[4]}}</a>
-                                            <br><br><br>
-                                            <li>{{sentiment.negative_article_title[5]}}</li>
-                                            <h4 class="text-left">Article Summary: {{sentiment.negative_article_summary[5].join(" ")}}</h4>
-                                            <a href="{{sentiment.negative_article_source[5]}}">{{sentiment.negative_article_source[5]}}</a>
-                                            <br><br><br>
-                                            <li>{{sentiment.negative_article_title[6]}}</li>
-                                            <h4 class="text-left">Article Summary: {{sentiment.negative_article_summary[6].join(" ")}}</h4>
-                                            <a href="{{sentiment.negative_article_source[6]}}">{{sentiment.negative_article_source[6]}}</a>
-                                            <br><br><br>
-                                            <button class="btn btn-default" ng-click="showme2=false">Hide Articles</button>
+                                      <!-- Trigger the 5 article details modal -->
+                                      <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal4">See 5 More Articles in Detail</button>
 
-                                          </ul>
-                                        </h2>
+                                      <!-- Modal -->
+                                      <div id="myModal4" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+
+                                          <!-- Modal content-->
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                              <h4 class="modal-title">Article Details</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                              <h3>{{sentiment.negative_article_title[2]}}</h3>
+                                              <h4 class="text-left">Article Summary: {{sentiment.negative_article_summary[2].join(" ")}}</h4>
+                                              <a href="{{sentiment.negative_article_source[2]}}">{{sentiment.negative_article_source[2]}}</a>
+                                              <br><br><br>
+                                              <h3>{{sentiment.negative_article_title[3]}}</h3>
+                                              <h4 class="text-left">Article Summary: {{sentiment.negative_article_summary[3].join(" ")}}</h4>
+                                              <a href="{{sentiment.negative_article_source[3]}}">{{sentiment.negative_article_source[3]}}</a>
+                                              <br><br><br>
+                                              <h3>{{sentiment.negative_article_title[4]}}</h3>
+                                              <h4 class="text-left">Article Summary: {{sentiment.negative_article_summary[4].join(" ")}}</h4>
+                                              <a href="{{sentiment.negative_article_source[4]}}">{{sentiment.negative_article_source[4]}}</a>
+                                              <br><br><br>
+                                              <h3>{{sentiment.negative_article_title[5]}}</h3>
+                                              <h4 class="text-left">Article Summary: {{sentiment.negative_article_summary[5].join(" ")}}</h4>
+                                              <a href="{{sentiment.negative_article_source[5]}}">{{sentiment.negative_article_source[5]}}</a>
+                                              <br><br><br>
+                                              <h3>{{sentiment.negative_article_title[6]}}</h3>
+                                              <h4 class="text-left">Article Summary: {{sentiment.negative_article_summary[6].join(" ")}}</h4>
+                                              <a href="{{sentiment.negative_article_source[6]}}">{{sentiment.negative_article_source[6]}}</a>
+                                              <br><br><br></div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                          </div>
+
+                                        </div>
                                       </div>
 
-                                      <div class="wrapper">
-                                        <h2 ng-show="showme5">
-                                            <p>Title:  {{sentiment.neutral_article_title.join(". &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Title: ")}}</p>
-                                            <button class="btn btn-default" ng-click="showme5=false">Hide List</button>
-                                        </h2>
+                                  <!-- Trigger the all article modal -->
+                                  <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal5">See All Article Titles</button>
+
+                                  <!-- Modal -->
+                                  <div id="myModal5" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-lg">
+
+                                      <!-- Modal content-->
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                          <h4 class="modal-title">All Positive Article Titles</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <textarea ng-model="sentiment.negative_article_title" ng-list="&#10;" ng-trim="false" rows="25" cols="100"></textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
                                       </div>
+
+                                    </div>
+                                  </div>
                                     <br>
                                     <hr>
                                   <div class="text-center"> <button ng-click="sentimentsCtrl.deleteSentiment(sentiment)" class="btn btn-danger">Delete Record</button></div>
