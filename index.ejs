@@ -100,7 +100,8 @@
                   <br>
                         <div class="jumbotron">
                             <h1>Sentiment Results</h1>
-                            <p>Results Will Appear Here after successful API call to AYLIEN news API</p><div ng-repeat="sentiment in sentimentsCtrl.all | orderBy:'+':true">
+                            <p>Results Will Appear Here after successful API call to AYLIEN news API</p>
+                            <div ng-repeat="sentiment in sentimentsCtrl.all track by $index">
                                 <div class="well">
                                   <h2 class="text-left">Company: {{sentiment.company}}</h3>
                                   <h4 class="text-left">Total Articles Analyzed: {{sentiment.count}}</h4>
@@ -121,10 +122,10 @@
                                   <hr>
 
                                       <!-- Trigger the 5 article details modal -->
-                                      <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">See 5 More Articles in Detail</button>
+                                      <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal{{$index}}">See 5 More Articles in Detail</button>
 
                                       <!-- Modal -->
-                                      <div id="myModal" class="modal fade" role="dialog">
+                                      <div id="myModal{{$index}}" class="modal fade" role="dialog">
                                         <div class="modal-dialog">
 
                                           <!-- Modal content-->
@@ -153,20 +154,19 @@
                                               <h3>{{sentiment.positive_article_title[6]}}</h3>
                                               <h4 class="text-left">Article Summary: {{sentiment.positive_article_summary[6].join(" ")}}</h4>
                                               <a href="{{sentiment.positive_article_source[6]}}">{{sentiment.positive_article_source[6]}}</a>
-                                            </div>
+                                          </div>
                                             <div class="modal-footer">
                                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                             </div>
                                           </div>
-
                                         </div>
                                       </div>
 
                                   <!-- Trigger the all article modal -->
-                                  <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal1">See All Article Titles</button>
+                                  <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal1{{$index}}">See All Article Titles</button>
 
                                   <!-- Modal -->
-                                  <div id="myModal1" class="modal fade" role="dialog">
+                                  <div id="myModal1{{$index}}" class="modal fade" role="dialog">
                                     <div class="modal-dialog modal-lg">
 
                                       <!-- Modal content-->
@@ -201,10 +201,10 @@
                                   <br>
                                   <hr>
                                     <!-- Trigger the 5 article details modal -->
-                                    <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2">See 5 More Articles in Detail</button>
+                                    <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2{{$index}}">See 5 More Articles in Detail</button>
 
                                     <!-- Modal -->
-                                    <div id="myModal2" class="modal fade" role="dialog">
+                                    <div id="myModal2{{$index}}" class="modal fade" role="dialog">
                                       <div class="modal-dialog">
 
                                         <!-- Modal content-->
@@ -244,17 +244,17 @@
                                     </div>
 
                                 <!-- Trigger the all article modal -->
-                                <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal3">See All Article Titles</button>
+                                <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal3{{$index}}">See All Article Titles</button>
 
                                 <!-- Modal -->
-                                <div id="myModal3" class="modal fade" role="dialog">
+                                <div id="myModal3{{$index}}" class="modal fade" role="dialog">
                                   <div class="modal-dialog modal-lg">
 
                                     <!-- Modal content-->
                                     <div class="modal-content">
                                       <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">All Positive Article Titles</h4>
+                                        <h4 class="modal-title">All Neutral Article Titles</h4>
                                       </div>
                                       <div class="modal-body">
                                           <textarea ng-model="sentiment.neutral_article_title" ng-list="&#10;" ng-trim="false" rows="25" cols="100"></textarea>
@@ -280,10 +280,10 @@
                                   <br>
                                   <hr>
                                       <!-- Trigger the 5 article details modal -->
-                                      <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal4">See 5 More Articles in Detail</button>
+                                      <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal4{{$index}}">See 5 More Articles in Detail</button>
 
                                       <!-- Modal -->
-                                      <div id="myModal4" class="modal fade" role="dialog">
+                                      <div id="myModal4{{$index}}" class="modal fade" role="dialog">
                                         <div class="modal-dialog">
 
                                           <!-- Modal content-->
@@ -322,17 +322,17 @@
                                       </div>
 
                                   <!-- Trigger the all article modal -->
-                                  <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal5">See All Article Titles</button>
+                                  <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal5{{$index}}">See All Article Titles</button>
 
                                   <!-- Modal -->
-                                  <div id="myModal5" class="modal fade" role="dialog">
+                                  <div id="myModal5{{$index}}" class="modal fade" role="dialog">
                                     <div class="modal-dialog modal-lg">
 
                                       <!-- Modal content-->
                                       <div class="modal-content">
                                         <div class="modal-header">
                                           <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                          <h4 class="modal-title">All Positive Article Titles</h4>
+                                          <h4 class="modal-title">All Negative Article Titles</h4>
                                         </div>
                                         <div class="modal-body">
                                             <textarea ng-model="sentiment.negative_article_title" ng-list="&#10;" ng-trim="false" rows="25" cols="100"></textarea>
