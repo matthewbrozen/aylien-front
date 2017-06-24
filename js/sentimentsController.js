@@ -17,8 +17,6 @@ function SentimentsController($http, $scope) {
    $scope.labels2 = ["Positive", "Not-Positive"];
    $scope.labels3 = ["Neutral", "Not-Neutral"];
    $scope.labels4 = ["Negative", "Not-Negative"];
-   $scope.colors1 = ["Grey", "Yellow"];
-   $scope.colors2 = ["Grey", "Red"];
 
 
 
@@ -30,17 +28,17 @@ function SentimentsController($http, $scope) {
        self.neutrals.push(response.data.allSentiments[i].neutral_score);
        self.negatives.push(response.data.allSentiments[i].negative_score);
      }
+     console.log($scope.spinner)
    }, function(error) {
      console.log(error)
    });
 
-   //post report method need to store _id from response
+
    function addSentiment(){
     $http
       .post('https://aylienapi.herokuapp.com/sentiments', self.newSentiment, console.log(self.newSentiment))
       .then(function(response){
         self.all.push(response.data.sentiment);
-
         self.newSentiment = {};
           $http.get('https://aylienapi.herokuapp.com/sentiments')
           .then(function(response){
